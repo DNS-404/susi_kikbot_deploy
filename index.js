@@ -15,7 +15,7 @@ bot.updateBotConfiguration();
  
 bot.onTextMessage((message) => {
  
-    request('http://api.asksusi.com/susi/chat.json?q=' + encodeURI(query), function(error, response, body) {
+    request('https://api.susi.ai/susi/chat.json?q=' + encodeURI(query), function(error, response, body) {
  
         if (!error && response.statusCode == 200) {
  
