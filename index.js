@@ -29,7 +29,7 @@ bot.onTextMessage((message) => {
  
     });
  
-    message.reply(answer)
+    message.reply(answer);
 });
  
-http.createServer(bot.incoming()).listen(process.env.PORT || 5000)
+http.createServer(bot.incoming()).listen(process.env.PORT || 5000);
