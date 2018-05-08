@@ -1,3 +1,4 @@
+'use strict';
 var http = require('http');
 var Bot = require('@kikinteractive/kik');
 var request = require('request')
@@ -6,15 +7,15 @@ var answer;
 var bot = new Bot({
  
     username: 'susi.ai',
-    apiKey: 'b5a5338b-b744-45fe-a4c5-629fda1851bd',
-    baseUrl: 'https://susi-kik-bot.herokuapp.com/webhook'
+    apiKey: process.env.API_KEY,
+    baseUrl: process.env.HEROKU_URL
  
 });
- 
+
 bot.updateBotConfiguration();
  
 bot.onTextMessage((message) => {
- 
+    /*
     request('https://api.susi.ai/susi/chat.json?timezoneOffset=-330&q=' + encodeURI(query), function(error, response, body) {
  
         if (!error && response.statusCode == 200) {
@@ -28,8 +29,11 @@ bot.onTextMessage((message) => {
         }
  
     });
- 
-    message.reply(answer);
+    */
+    //message.reply(answer);
+    message.reply(message.body);
+
+    console.log(message.body);
 });
  
 http.createServer(bot.incoming()).listen(process.env.PORT || 5000);
