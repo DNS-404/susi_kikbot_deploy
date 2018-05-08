@@ -13,6 +13,10 @@ var bot = new Bot({
     baseUrl: process.env.BASE_URL
 });
 
+setInterval(function() {
+        http.get(process.env.HEROKU_URL);
+    }, 1200000);
+
 bot.updateBotConfiguration();
  
 bot.onTextMessage((message) => {
