@@ -5,12 +5,10 @@ var Bot = require('@kikinteractive/kik');
 var susi= require('./susi.js');
 var answer;
 
-const port = process.env.PORT || 80;
-
 var bot = new Bot({
     username: 'susi.ai',
-    apiKey: process.env.API_KEY,
-    baseUrl: process.env.BASE_URL
+    apiKey: 'b5a5338b-b744-45fe-a4c5-629fda1851bd',
+    baseUrl: 'http://susi-kik-bot.herokuapp.com:80'
 });
 
 bot.updateBotConfiguration();
@@ -37,12 +35,12 @@ bot.onTextMessage((message) => {
     */
     //message.reply(answer);
     //message.reply(message.body);
-    console.log(answer);
+    //console.log(answer);
     //console.log(message.body);
 });
  
 let server = http
     .createServer(bot.incoming())
-    .listen(port);
+    .listen(process.env.PORT || 80);
 //http.createServer(bot.incoming()).listen(8080);
 
