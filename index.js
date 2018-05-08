@@ -9,8 +9,8 @@ const port = process.env.PORT || 8080;
 
 var bot = new Bot({
     username: 'susi.ai',
-    apiKey: 'b5a5338b-b744-45fe-a4c5-629fda1851bd',
-    baseUrl: 'https://f5dd73fc.ngrok.io/incoming'
+    apiKey: process.env.API_KEY,
+    baseUrl: process.env.BASE_URL
 });
 
 bot.updateBotConfiguration();
