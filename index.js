@@ -5,7 +5,7 @@ var Bot = require('@kikinteractive/kik');
 var susi= require('./susi.js');
 var answer;
 
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 80;
 
 var bot = new Bot({
     username: 'susi.ai',
