@@ -1,22 +1,27 @@
 'use strict';
 var http = require('http');
 var Bot = require('@kikinteractive/kik');
-var request = require('request');
+//var request = require('request');
+var susi= require('./susi.js');
 var answer;
+
 const port = process.env.PORT || 8080;
+
 var bot = new Bot({
- 
     username: 'susi.ai',
     apiKey: 'b5a5338b-b744-45fe-a4c5-629fda1851bd',
-    baseUrl: `http://susi-kik-bot.herokuapp.com:${port}`
- 
+    baseUrl: 'https://f5dd73fc.ngrok.io/incoming'
 });
 
 bot.updateBotConfiguration();
  
 bot.onTextMessage((message) => {
+    susi.ask(message.body,function (answer) {
+      message.reply(answer);
+    })
     /*
-    request('https://api.susi.ai/susi/chat.json?timezoneOffset=-330&q=' + encodeURI(query), function(error, response, body) {
+    let query = message.body;
+    request('https://api.susi.ai/susi/chat.json?q=' + encodeURI(query), function(error, response, body) {
  
         if (!error && response.statusCode == 200) {
  
@@ -31,9 +36,9 @@ bot.onTextMessage((message) => {
     });
     */
     //message.reply(answer);
-    message.reply(message.body);
-
-    console.log(message.body);
+    //message.reply(message.body);
+    console.log(answer);
+    //console.log(message.body);
 });
  
 let server = http
