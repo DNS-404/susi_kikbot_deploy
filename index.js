@@ -8,7 +8,7 @@ var bot = new Bot({
  
     username: 'susi.ai',
     apiKey: 'b5a5338b-b744-45fe-a4c5-629fda1851bd',
-    baseUrl: 'https://susi-kik-bot.herokuapp.com/incoming'
+    baseUrl: 'https://susi-kik-bot.herokuapp.com:80'
  
 });
 
@@ -36,4 +36,8 @@ bot.onTextMessage((message) => {
     console.log(message.body);
 });
  
-http.createServer(bot.incoming()).listen(process.env.PORT || 5000);
+let server = http
+    .createServer(bot.incoming())
+    .listen(process.env.PORT || 80);
+//http.createServer(bot.incoming()).listen(8080);
+
