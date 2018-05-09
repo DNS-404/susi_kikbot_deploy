@@ -8,15 +8,15 @@ var answer;
 let port = process.env.PORT || 8080;
 
 var bot = new Bot({
-    username: process.env.BOT_USERNAME,
-    apiKey: process.env.API_KEY,
-    baseUrl: process.env.BASE_URL
+    username: 'susi.ai',
+    apiKey: 'b5a5338b-b744-45fe-a4c5-629fda1851bd',
+    baseUrl: 'https://susi-kik-bot.herokuapp.com/'
 });
-
+/*
 setInterval(function() {
         http.get(process.env.HEROKU_URL);
     }, 1200000);
-
+*/
 bot.updateBotConfiguration();
  
 bot.onTextMessage((message) => {
