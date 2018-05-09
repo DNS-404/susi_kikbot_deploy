@@ -8,7 +8,7 @@ var answer;
 let port = process.env.PORT || 8080;
 
 var bot = new Bot({
-    username: 'susi.ai',
+    username: process.env.KIK_BOT_USERNAME,
     apiKey: process.env.API_KEY,
     baseUrl: process.env.BASE_URL
 });
